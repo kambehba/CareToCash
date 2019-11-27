@@ -10,25 +10,33 @@
 
 
 
-<div class="container">
+    <div class="container">
 
-    <h1 class="g0">Care To Cash</h1>
+        <h1 class="g0">Care To Cash</h1>
 
-    <label class="g1">Select Member:</label>
+        <label class="g1">Select Member:</label>
 
+        <select class="g2" @bind="_selectdUserId">
 
+            @for (int i = 0; i < _users.Count; i++)
+            {
+                <option value="@_users[i].Name">@_users[i].Name</option>
+            }
+        </select>
 
-    <select class="g2" @bind="_selectdUserId">
+        <h1 class="g3">Rustin:</h1> <h1 class="g4">$80</h1>
 
-        @for (int i = 0; i < _users.Count; i++)
-        {
-            <option value="@_users[i].Name">@_users[i].Name</option>
-        }
-    </select>
+        <h3 class="g5">Cares:</h3>
+        <div class="g6">
+            <label>sadasdasd</label>
+        </div>
 
-    <button class="g4" @onclick="AddUser">Click</button>
+        <h3 class="g7">Charges:</h3>
+        <div class="g8">
+            <label>sadasdasd</label>
+        </div>
 
-</div>
+    </div>
 
 
 

@@ -1458,8 +1458,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kam\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Kam\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -1470,9 +1469,6 @@
       "packagesPath": "C:\\Users\\Kam\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Kam\\Documents\\GitHub\\CareToCash\\CareToCash\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
         "C:\\Users\\Kam\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
