@@ -11,15 +11,30 @@ app.use(cors({ origine: true }))
 
 app.get('/getUsers', async (request, response) => {
    
-    const snaps = await db.collection('CareToCash-Users').doc('0').collection('Cares').get();
+   // const snaps = await db.collection('CareToCash-Users').doc('0').collection('Cares').get();
 
-   // const snaps = await db.collection('CareToCash-Users').get();
-  
-    const users:any[] = [];
+    const snaps = await db.collection('CareToCash-Users').get();
+    
+    const users: any[] = [];
 
     snaps.forEach(snap => users.push(snap.data()));
 
-    response.status(200).json({ users });
+
+    response.status(200).json(users);
+});
+
+app.get('/getChargesById', async (request, response) => {
+
+    // const snaps = await db.collection('CareToCash-Users').doc('0').collection('Cares').get();
+
+    const snaps = await db.collection('Charges').where("id", "==" ,"request.params)").get();
+
+    const charges: any[] = [];
+
+    snaps.forEach(snap => charges.push(snap.data()));
+
+
+    response.status(200).json(charges);
 });
 
 export const appFunctions = functions.https.onRequest(app);

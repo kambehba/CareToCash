@@ -261,7 +261,7 @@ app {
 .g8 {
     grid-area: g8;
     overflow: scroll;
-    background-color: black;
+    background-color: wheat;
 }
 
 .g9 {

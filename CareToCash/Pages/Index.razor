@@ -5,46 +5,48 @@
 @using Services;
 @using Models;
 
+@using System.Text.Json;
+@using System.Text.Json.Serialization;
+
 @inject HttpClient Http;
 @inject UserService userService;
 
 
 
-    <div class="container">
+<div class="container">
 
-        <h1 class="g0">Care To Cash</h1>
+    <h1 class="g0">Care To Cash</h1>
 
-        <label class="g1">Select Member:</label>
+    <label class="g1">Select Member:</label>
 
-        <select class="g2" @bind="_selectdUserId">
+    <select class="g2" @bind="_selectdUserId">
 
-            @for (int i = 0; i < _users.Count; i++)
-            {
-                <option value="@_users[i].Name">@_users[i].Name</option>
-            }
-        </select>
+        @for (int i = 0; i < _users.Count; i++)
+        {
+            <option value="@_users[i].name">@_users[i].name</option>
+        }
+    </select>
 
-        <h1 class="g3">Rustin:</h1> <h1 class="g4">$80</h1>
+    <h1 class="g3">Rustin:</h1> <h1 class="g4">$80</h1>
 
-        <h3 class="g5">Cares:</h3>
-        <div class="g6">
-            <label>sadasdasd</label>
-        </div>
-
-        <h3 class="g7">Charges:</h3>
-        <div class="g8">
-            <label>sadasdasd</label>
-        </div>
-
+    <h3 class="g5">Cares:</h3>
+    <div class="g6">
+        <label>sadasdasd</label>
     </div>
 
+    <h3 class="g7">Charges:</h3>
+    <div class="g8">
+        <label>@_charges</label>
+    </div>
 
+</div>
 
 
 @code{
     private int _selectdUserId = 0;
     private List<User> _users;
-
+    private List<Charge> _charges;
+    private User[] user2;
     protected override async Task OnInitializedAsync()
     {
         _users = new List<User>();
@@ -56,16 +58,20 @@
     private async Task RefreshCustomerList()
     {
         _users = new List<User>();
-        _users = await Http.GetJsonAsync<List<User>>("https://us-central1-dazzling-torch-8270.cloudfunctions.net/getUsers");
+        _charges = new List<Charge>();
+
+        _users = await Http.GetJsonAsync<List<User>>("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/getUsers");
+
+     
 
         StateHasChanged();
     }
 
 
-    private async Task AddUser()
+    private async Task GetChargesById(int id)
     {
-       var user = new User() { Id = 1, Name = "Bersum", Cash = 25 };
-       await Http.PostJsonAsync("https://us-central1-dazzling-torch-8270.cloudfunctions.net/addUser", user);
+        // var user = new User() { Id = 1, Name = "Bersum", Cash = 25 };
+          _charges = await Http.GetJsonAsync<List<Charge>>("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/getChargesById/:"+id.ToString());
     }
 
 

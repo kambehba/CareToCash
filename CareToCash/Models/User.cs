@@ -14,11 +14,11 @@ namespace CareToCash.Models
 
         }
 
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public int Cash { get; set; }
-        public List<Care> Cares { get; set; }
-        public List<Charge> Charges { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public int cash { get; set; }
+        //public List<Care> Cares { get; set; }
+        //public List<Charge> Charges { get; set; }
 
     }
 }

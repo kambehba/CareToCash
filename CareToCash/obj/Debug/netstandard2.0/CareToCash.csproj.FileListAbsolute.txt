@@ -8,7 +8,6 @@ C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\bin\Debug\netstandard2.0\Mon
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\bin\Debug\netstandard2.0\System.Buffers.dll
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\bin\Debug\netstandard2.0\System.ComponentModel.Annotations.dll
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\bin\Debug\netstandard2.0\System.Numerics.Vectors.dll
-C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\CareToCash.TagHelpers.output.cache
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\bin\Debug\netstandard2.0\dist\_framework\_bin\mscorlib.dll
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\bin\Debug\netstandard2.0\dist\_framework\blazor.server.js
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\bin\Debug\netstandard2.0\dist\_framework\blazor.boot.json
@@ -118,9 +117,10 @@ C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\bla
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\blazor\linker\CareToCash.pdb
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\blazor\inputs.bootjson.cache
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\blazor\blazor.boot.json
-C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\bin\Debug\netstandard2.0\dist\_framework\_bin\Newtonsoft.Json.dll
+C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\CareToCash.csprojAssemblyReference.cache
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\RazorDeclaration\CareToCash.dll
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\CareToCash.TagHelpers.input.cache
+C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\CareToCash.TagHelpers.output.cache
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\CareToCash.RazorCoreGenerate.cache
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\Razor\App.razor.g.cs
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\Razor\Pages\Counter.razor.g.cs
@@ -130,5 +130,3 @@ C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\Raz
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\Razor\Shared\NavMenu.razor.g.cs
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\Razor\Shared\SurveyPrompt.razor.g.cs
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\Razor\_Imports.razor.g.cs
-C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\blazor\linker\Newtonsoft.Json.dll
-C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\CareToCash.csprojAssemblyReference.cache
