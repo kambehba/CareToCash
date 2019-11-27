@@ -14,6 +14,7 @@ Microsoft.Extensions.Primitives.dll
 Microsoft.JSInterop.dll
 Mono.WebAssembly.Interop.dll
 mscorlib.dll
+Newtonsoft.Json.dll
 System.Buffers.dll
 System.ComponentModel.Annotations.dll
 System.Core.dll

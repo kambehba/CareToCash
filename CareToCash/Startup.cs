@@ -1,3 +1,4 @@
+using CareToCash.Services;
 using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -7,6 +8,7 @@ namespace CareToCash
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<UserService>();
         }
 
         public void Configure(IComponentsApplicationBuilder app)

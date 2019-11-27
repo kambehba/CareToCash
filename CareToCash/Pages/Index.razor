@@ -1,7 +1,71 @@
-﻿@page "/"
+﻿
+@page "/"
 
-<h1>Hello, world!</h1>
+@using System.Net.Http;
+@using Services;
+@using Models;
 
-Welcome to your new app.
+@inject HttpClient Http;
+@inject UserService userService;
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+
+
+<div class="container">
+
+    <h1 class="g0">Care To Cash</h1>
+
+    <label class="g1">Select Member:</label>
+
+
+
+    <select class="g2" @bind="_selectdUserId">
+
+        @for (int i = 0; i < _users.Count; i++)
+        {
+            <option value="@_users[i].Name">@_users[i].Name</option>
+        }
+    </select>
+
+    <button class="g4" @onclick="AddUser">Click</button>
+
+</div>
+
+
+
+
+@code{
+    private int _selectdUserId = 0;
+    private List<User> _users;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _users = new List<User>();
+        await RefreshCustomerList();
+    }
+
+
+
+    private async Task RefreshCustomerList()
+    {
+        _users = new List<User>();
+        _users = await Http.GetJsonAsync<List<User>>("https://us-central1-dazzling-torch-8270.cloudfunctions.net/getUsers");
+
+        StateHasChanged();
+    }
+
+
+    private async Task AddUser()
+    {
+       var user = new User() { Id = 1, Name = "Bersum", Cash = 25 };
+       await Http.PostJsonAsync("https://us-central1-dazzling-torch-8270.cloudfunctions.net/addUser", user);
+    }
+
+
+}
+
+
+
+
+
+
+
