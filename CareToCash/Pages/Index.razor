@@ -12,66 +12,156 @@
 @inject UserService userService;
 
 
+    <div class="container">
 
-<div class="container">
+        <h1 class="g0">Care To Cash</h1>
 
-    <h1 class="g0">Care To Cash</h1>
+        <label class="g1">Select Member:</label>
 
-    <label class="g1">Select Member:</label>
+        <select class="g2" @bind="_selectdUserId">
 
-    <select class="g2" @bind="_selectdUserId">
+            @for (int i = 0; i < _users.Count; i++)
+            {
+                <option value="@_users[i].id">@_users[i].name</option>
+            }
+        </select>
 
-        @for (int i = 0; i < _users.Count; i++)
-        {
-            <option value="@_users[i].name">@_users[i].name</option>
-        }
-    </select>
+        <button class="g3 btn-danger" @onclick="GetUserById">Send</button>
 
-    <h1 class="g3">Rustin:</h1> <h1 class="g4">$80</h1>
+        <h1 class="g4">@_selectedUser:</h1> <h1 class="g5">$@ff</h1>
 
-    <h3 class="g5">Cares:</h3>
-    <div class="g6">
-        <label>sadasdasd</label>
+        <h3 class="g6">Cares Avilable to Grab:</h3>
+        <div class="g7">
+
+            @for (int i = 0; i < _cares_NotAssigned.Count; i++)
+            {
+                <button class="btn-success">Add</button>
+                <label>@_cares_NotAssigned[i].care : $ @_cares_NotAssigned[i].careValue</label>
+                <br /> <hr>
+            }
+
+
+        </div>
+
+        <h3 class="g8">Cares Assigned:</h3>
+        <div class="g9">
+
+            @for (int i = 0; i < _cares_Assigned.Count; i++)
+            {
+                <button class="btn-success">Remove</button>
+                <label>@_cares_Assigned[i].care : $ @_cares_Assigned[i].careValue</label>
+                <br /> <hr>
+            }
+
+
+        </div>
+
+        @*<h3 class="g7">Charges:</h3>
+        <div class="g8">
+            @foreach (var item in _charges)
+            {
+                <label>@item.charge</label>
+                <br />
+            }
+
+        </div>*@
+
     </div>
-
-    <h3 class="g7">Charges:</h3>
-    <div class="g8">
-        <label>@_charges</label>
-    </div>
-
-</div>
 
 
 @code{
+
+    private string _selectedUser = "";
+
     private int _selectdUserId = 0;
+    private string ff =string.Empty;
+    private List<string> ew = new List<string>();
     private List<User> _users;
     private List<Charge> _charges;
-    private User[] user2;
+    private List<Care> _cares;
+    private List<Care> _cares_NotAssigned;
+    private List<Care> _cares_Assigned;
+    private List<Care> _cares_Completed;
+
     protected override async Task OnInitializedAsync()
     {
-        _users = new List<User>();
+        // _users = new List<User>();
         await RefreshCustomerList();
+        //  await GetChargesById(0);
     }
 
-
+    private void dothis2(string h)
+    {
+        _selectedUser = h;
+    }
 
     private async Task RefreshCustomerList()
     {
         _users = new List<User>();
         _charges = new List<Charge>();
+        _cares = new List<Care>();
+
+        _cares_NotAssigned = new List<Care>();
+        _cares_Assigned = new List<Care>();
+        _cares_Completed = new List<Care>();
 
         _users = await Http.GetJsonAsync<List<User>>("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/getUsers");
+        _charges = await Http.GetJsonAsync<List<Charge>>("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/getCharges");
+        _cares = await Http.GetJsonAsync<List<Care>>("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/getCares");
 
-     
 
+        UpdateCares_NotAssigned();
+        UpdateCares_Assigned();
+        UpdateCares_Completed();
+
+        
+
+        ff = _charges[0].charge;
         StateHasChanged();
     }
 
-
-    private async Task GetChargesById(int id)
+    private void UpdateCares_NotAssigned()
     {
-        // var user = new User() { Id = 1, Name = "Bersum", Cash = 25 };
-          _charges = await Http.GetJsonAsync<List<Charge>>("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/getChargesById/:"+id.ToString());
+        _cares_NotAssigned.Clear();
+        foreach(var item in _cares)
+        {
+            if(item.status == 1)
+            {
+                _cares_NotAssigned.Add(item);
+            }
+        }
+    }
+
+    private void UpdateCares_Assigned()
+    {
+        _cares_Assigned.Clear();
+        foreach(var item in _cares)
+        {
+            if(item.status == 2)
+            {
+                _cares_Assigned.Add(item);
+            }
+        }
+    }
+
+    private void UpdateCares_Completed()
+    {
+        _cares_Completed.Clear();
+        foreach(var item in _cares)
+        {
+            if(item.status == 3)
+            {
+                _cares_Completed.Add(item);
+            }
+        }
+    }
+
+    private void GetUserById()
+    {
+        var h = _users.Where(x => x.id == _selectdUserId).FirstOrDefault();
+        _selectedUser = h.name;
+        ff = h.cash.ToString();
+
     }
 
 

@@ -9,16 +9,18 @@ namespace CareToCash.Models
     {
         public User()
         {
-          //  Care = new List<Care>();
-        //    Charges = new List<Charge>();
+          //  cares = new List<Care>();
+            //charges = new List<string>();
 
         }
 
         public int id { get; set; }
         public string name { get; set; }
         public int cash { get; set; }
-        //public List<Care> Cares { get; set; }
-        //public List<Charge> Charges { get; set; }
+
+        
+        // public List<Care> cares { get; set; }
+        //   public List<string> charges { get; set; }
 
     }
 }

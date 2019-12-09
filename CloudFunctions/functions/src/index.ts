@@ -23,11 +23,39 @@ app.get('/getUsers', async (request, response) => {
     response.status(200).json(users);
 });
 
-app.get('/getChargesById', async (request, response) => {
+app.get('/getCares', async (request, response) => {
 
     // const snaps = await db.collection('CareToCash-Users').doc('0').collection('Cares').get();
 
-    const snaps = await db.collection('Charges').where("id", "==" ,"request.params)").get();
+    const snaps = await db.collection('cares').get();
+
+    const cares: any[] = [];
+
+    snaps.forEach(snap => cares.push(snap.data()));
+
+
+    response.status(200).json(cares);
+});
+
+app.get('/getcharges', async (request, response) => {
+
+    // const snaps = await db.collection('CareToCash-Users').doc('0').collection('Cares').get();
+
+    const snaps = await db.collection('charges').get();
+
+    const charges: any[] = [];
+
+    snaps.forEach(snap => charges.push(snap.data()));
+
+
+    response.status(200).json(charges);
+});
+
+app.get('/getChargesById/{id}', async (request, response) => {
+
+    // const snaps = await db.collection('CareToCash-Users').doc('0').collection('Cares').get();
+
+    const snaps = await db.collection('charges').where("id", "==" ,request.params.id).get();
 
     const charges: any[] = [];
 

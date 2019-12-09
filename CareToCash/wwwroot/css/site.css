@@ -198,8 +198,8 @@ app {
     display: grid;
     grid-template-columns: 90px 90px 90px;
     grid-template-rows: 50px 50px 50px 50px 50px 50px 30px 50px 50px 50px 50px 20px 50px 50px 50px 50px;
-    grid-template-areas: "g0 g0 g0" ". . ." "g1 g1 g1" "g2 g2 g2" ". . ." "g3 g3 g4" ". . ." 
-                         "g5 g5 g5" "g6 g6 g6" "g6 g6 g6" "g6 g6 g6" ". . ." "g7 g7 g7" "g8 g8 g8" "g8 g8 g8" "g8 g8 g8";
+    grid-template-areas: "g0 g0 g0" ". . ." "g1 g1 g1" "g2 g2 g3" ". . ." "g4 g4 g5" ". . ." "g6 g6 g6" "g7 g7 g7" "g7 g7 g7" "g7 g7 g7"
+                         ". . ." "g8 g8 g8" "g9 g9 g9" "g9 g9 g9" "g9 g9 g9";
 }
 
 .g0 {
@@ -222,6 +222,7 @@ app {
     grid-area: g2;
     text-decoration-style: solid;
     color: darkblue;
+   
 }
 
 .g3 {
@@ -247,25 +248,25 @@ app {
 
 .g6 {
     grid-area: g6;
-    overflow:scroll;
-    background-color:black;
-    
-    
+    color: cornsilk;
 }
 
 .g7 {
     grid-area: g7;
     color: bisque;
+    overflow: scroll;
+    background-color: black;
 }
 
 .g8 {
     grid-area: g8;
-    overflow: scroll;
-    background-color: wheat;
+   
 }
 
 .g9 {
     grid-area: g9;
+    overflow: scroll;
+    background-color: wheat;
 }
 
 .g10 {

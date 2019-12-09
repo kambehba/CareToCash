@@ -7,8 +7,9 @@ namespace CareToCash.Models
 {
     public class Care
     {
-        public int Id { get; set; }
-        public int Reward { get; set; }
-        public string Description { get; set; }
+        public int userId { get; set; }
+        public string care { get; set; }
+        public int careValue { get; set; }
+        public int status { get; set; }
     }
 }
