@@ -16,7 +16,7 @@
 
         <h1 class="g0">Care To Cash</h1>
 
-        <label class="g1">Select Member:</label>
+        <h3 class="g1">Select Member:</h3>
 
         <select class="g2" @bind="_selectdUserId">
 
@@ -26,55 +26,66 @@
             }
         </select>
 
-        <button class="g3 btn-danger" @onclick="GetUserById">Send</button>
+        <button class="g3 btn-info" @onclick="GetUserById">Send</button>
 
-        <h1 class="g4">@_selectedUser:</h1> <h1 class="g5">$@ff</h1>
+        <h1 class="g4 @showhide">@_selectedUser</h1> <h1 class="g5">@ff</h1>
 
-        <h3 class="g6">Cares Avilable to Grab:</h3>
-        <div class="g7">
+        <h3 class="g6 @showhide">Cares Avilable:</h3>
+        <div class="g7 @showhide">
 
             @for (int i = 0; i < _cares_NotAssigned.Count; i++)
             {
                 <button class="btn-success">Add</button>
-                <label>@_cares_NotAssigned[i].care : $ @_cares_NotAssigned[i].careValue</label>
+                <label>@_cares_NotAssigned[i].care  $ @_cares_NotAssigned[i].careValue</label>
                 <br /> <hr>
             }
 
 
         </div>
 
-        <h3 class="g8">Cares Assigned:</h3>
-        <div class="g9">
+        <h3 class="g8 @showhide">Cares Assigned:</h3>
+        <div class="g9 @showhide">
 
             @for (int i = 0; i < _cares_Assigned.Count; i++)
             {
                 <button class="btn-success">Remove</button>
-                <label>@_cares_Assigned[i].care : $ @_cares_Assigned[i].careValue</label>
+                <label>@_cares_Assigned[i].care: $ @_cares_Assigned[i].careValue</label>
                 <br /> <hr>
             }
-
-
         </div>
 
-        @*<h3 class="g7">Charges:</h3>
-        <div class="g8">
-            @foreach (var item in _charges)
-            {
-                <label>@item.charge</label>
-                <br />
-            }
+        <h3 class="g10 @showhide">Cares Completed:</h3>
+        <div class="g11 @showhide">
 
-        </div>*@
+            @for (int i = 0; i < _cares_Completed.Count; i++)
+            {
+
+                <label>@_cares_Completed[i].care: $ @_cares_Completed[i].careValue</label>
+                <br /> <hr>
+            }
+        </div>
+
+        <h3 class="g12 @showhide">CHARGES:</h3>
+        <div class="g13 @showhide">
+
+            @for (int i = 0; i < _charges.Count; i++)
+            {
+                <label>@_charges[i].charge: $ @_charges[i].ChargeValue</label>
+                <br /> <hr>
+            }
+        </div>
 
     </div>
 
 
 @code{
 
+    private string showhide = "hide";
+
     private string _selectedUser = "";
 
     private int _selectdUserId = 0;
-    private string ff =string.Empty;
+    private string ff = string.Empty;
     private List<string> ew = new List<string>();
     private List<User> _users;
     private List<Charge> _charges;
@@ -114,18 +125,18 @@
         UpdateCares_Assigned();
         UpdateCares_Completed();
 
-        
 
-        ff = _charges[0].charge;
+
+        // ff = _charges[0].charge;
         StateHasChanged();
     }
 
     private void UpdateCares_NotAssigned()
     {
         _cares_NotAssigned.Clear();
-        foreach(var item in _cares)
+        foreach (var item in _cares)
         {
-            if(item.status == 1)
+            if (item.status == 1)
             {
                 _cares_NotAssigned.Add(item);
             }
@@ -135,9 +146,9 @@
     private void UpdateCares_Assigned()
     {
         _cares_Assigned.Clear();
-        foreach(var item in _cares)
+        foreach (var item in _cares)
         {
-            if(item.status == 2)
+            if (item.status == 2)
             {
                 _cares_Assigned.Add(item);
             }
@@ -147,9 +158,9 @@
     private void UpdateCares_Completed()
     {
         _cares_Completed.Clear();
-        foreach(var item in _cares)
+        foreach (var item in _cares)
         {
-            if(item.status == 3)
+            if (item.status == 3)
             {
                 _cares_Completed.Add(item);
             }
@@ -160,7 +171,9 @@
     {
         var h = _users.Where(x => x.id == _selectdUserId).FirstOrDefault();
         _selectedUser = h.name;
-        ff = h.cash.ToString();
+        ff = "$" + h.cash.ToString();
+
+        showhide = "show";
 
     }
 

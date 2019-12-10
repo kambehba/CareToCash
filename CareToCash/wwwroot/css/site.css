@@ -193,13 +193,19 @@ app {
     }
 }
 
+.show{
+    display:normal;
+}
+
+.hide {
+    display: none;
+}
 
 .container {
     display: grid;
     grid-template-columns: 90px 90px 90px;
-    grid-template-rows: 50px 50px 50px 50px 50px 50px 30px 50px 50px 50px 50px 20px 50px 50px 50px 50px;
-    grid-template-areas: "g0 g0 g0" ". . ." "g1 g1 g1" "g2 g2 g3" ". . ." "g4 g4 g5" ". . ." "g6 g6 g6" "g7 g7 g7" "g7 g7 g7" "g7 g7 g7"
-                         ". . ." "g8 g8 g8" "g9 g9 g9" "g9 g9 g9" "g9 g9 g9";
+    grid-template-rows: 50px 30px 20px 20px 30px 50px 30px 50px 50px 50px 50px 20px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
+    grid-template-areas: "g0 g0 g0" ". . ." "g1 g1 g1" ". . ." "g2 g2 g3" ". . ." "g4 g4 g5" ". . ." "g6 g6 g6" "g7 g7 g7" "g7 g7 g7" "g7 g7 g7" ". . ." "g8 g8 g8" "g9 g9 g9" "g9 g9 g9" "g9 g9 g9" ". . ." "g10 g10 g10" "g11 g11 g11" "g11 g11 g11" "g11 g11 g11" ". . ." "g12 g12 g12" "g13 g13 g13" "g13 g13 g13" "g13 g13 g13";
 }
 
 .g0 {
@@ -208,13 +214,13 @@ app {
     margin-left: 1rem;
     font-style: italic;
     color: cornsilk;
+    
 }
 
 .g1 {
     grid-area: g1;
     text-decoration-style: wavy;
     color: cornsilk;
-    margin-left: 1rem;
     font-style: italic;
 }
 
@@ -236,14 +242,12 @@ app {
     grid-area: g4;
     color:chartreuse;
     
-  
-    /*margin-top:2rem;*/
-   
 }
 
 .g5 {
     grid-area: g5;
-    color:bisque;
+    color: bisque;
+  
 }
 
 .g6 {
@@ -260,7 +264,7 @@ app {
 
 .g8 {
     grid-area: g8;
-   
+    color: cornsilk;
 }
 
 .g9 {
@@ -271,8 +275,22 @@ app {
 
 .g10 {
     grid-area: g10;
+    color: cornsilk;
 }
 
 .g11 {
     grid-area: g11;
+    overflow: scroll;
+    background-color: wheat;
+}
+
+.g12 {
+    grid-area: g12;
+    color: cornsilk;
+}
+
+.g13 {
+    grid-area: g13;
+    overflow: scroll;
+    background-color: wheat;
 }
