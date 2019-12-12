@@ -1,18 +1,50 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
+
 import * as express from 'express';
+
 import { db } from './init';
 
 const cors = require('cors');
 
 const app = express();
 
+
 app.use(cors({ origine: true }))
+
+app.get('/getUserByEmail', async (request, response) => {
+
+     admin.auth().getUserByEmail(request.query.email).then(function(userRecord) {
+         response.send('FOUND:' + userRecord.email);
+         
+     })
+         .catch(function (error) {
+             response.send(error);
+         });
+});
+
+app.get('/createUser', async (request, response) => {
+   
+    admin.auth().createUser({
+        email: request.query.email,
+        password: request.query.password,
+        
+    })
+        .then(function (userRecord) {
+            // See the UserRecord reference doc for the contents of userRecord.
+            console.log('Successfully created new user:', userRecord.uid);
+            response.status(200).json(userRecord.uid);
+        })
+        .catch(function (error) {
+            console.log('Error creating new user:', error);
+        })
+   
+});
 
 app.get('/getUsers', async (request, response) => {
    
    // const snaps = await db.collection('CareToCash-Users').doc('0').collection('Cares').get();
-
+   
     const snaps = await db.collection('CareToCash-Users').get();
     
     const users: any[] = [];

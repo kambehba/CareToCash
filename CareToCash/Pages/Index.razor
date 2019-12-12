@@ -73,12 +73,17 @@
                 <label>@_charges[i].charge: $ @_charges[i].ChargeValue</label>
                 <br /> <hr>
             }
+            @temp2
         </div>
 
     </div>
 
 
 @code{
+
+    private string temp = string.Empty;
+
+     private string temp2 = string.Empty;
 
     private string showhide = "hide";
 
@@ -120,7 +125,11 @@
         _charges = await Http.GetJsonAsync<List<Charge>>("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/getCharges");
         _cares = await Http.GetJsonAsync<List<Care>>("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/getCares");
 
-
+        
+        
+        temp = await Http.GetStringAsync("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/createUser/?email=kamparsen@yahoo.com&password=123456");
+        temp2 = await Http.GetStringAsync("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/getUserByEmail/?email=kamparsen@yahoo.com");
+        
         UpdateCares_NotAssigned();
         UpdateCares_Assigned();
         UpdateCares_Completed();
