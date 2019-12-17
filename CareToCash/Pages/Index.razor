@@ -1,9 +1,11 @@
 ﻿
-@page "/"
+@page "/main"
 
 @using System.Net.Http;
 @using Services;
 @using Models;
+@inject IJSRuntime JSRuntime;
+
 
 @using System.Text.Json;
 @using System.Text.Json.Serialization;
@@ -12,78 +14,78 @@
 @inject UserService userService;
 
 
-    <div class="container">
+<div class="container">
 
-        <h1 class="g0">Care To Cash</h1>
+    <h1 class="g0">Care To Cash</h1>
 
-        <h3 class="g1">Select Member:</h3>
+    <h3 class="g1">Select Member:</h3>
 
-        <select class="g2" @bind="_selectdUserId">
+    <select class="g2" @bind="_selectdUserId">
 
-            @for (int i = 0; i < _users.Count; i++)
-            {
-                <option value="@_users[i].id">@_users[i].name</option>
-            }
-        </select>
+        @for (int i = 0; i < _users.Count; i++)
+        {
+            <option value="@_users[i].id">@_users[i].name</option>
+        }
+    </select>
 
-        <button class="g3 btn-info" @onclick="GetUserById">Send</button>
+    <button class="g3 btn-info" @onclick="GetUserById">Send</button>
 
-        <h1 class="g4 @showhide">@_selectedUser</h1> <h1 class="g5">@ff</h1>
+    <h1 class="g4 @showhide">@_selectedUser</h1> <h1 class="g5">@ff</h1>
 
-        <h3 class="g6 @showhide">Cares Avilable:</h3>
-        <div class="g7 @showhide">
+    <h3 class="g6 @showhide">Cares Avilable:</h3>
+    <div class="g7 @showhide">
 
-            @for (int i = 0; i < _cares_NotAssigned.Count; i++)
-            {
-                <button class="btn-success">Add</button>
-                <label>@_cares_NotAssigned[i].care  $ @_cares_NotAssigned[i].careValue</label>
-                <br /> <hr>
-            }
+        @for (int i = 0; i < _cares_NotAssigned.Count; i++)
+        {
+            <button class="btn-success">Add</button>
+            <label>@_cares_NotAssigned[i].care  $ @_cares_NotAssigned[i].careValue</label>
+            <br /> <hr>
+        }
 
-
-        </div>
-
-        <h3 class="g8 @showhide">Cares Assigned:</h3>
-        <div class="g9 @showhide">
-
-            @for (int i = 0; i < _cares_Assigned.Count; i++)
-            {
-                <button class="btn-success">Remove</button>
-                <label>@_cares_Assigned[i].care: $ @_cares_Assigned[i].careValue</label>
-                <br /> <hr>
-            }
-        </div>
-
-        <h3 class="g10 @showhide">Cares Completed:</h3>
-        <div class="g11 @showhide">
-
-            @for (int i = 0; i < _cares_Completed.Count; i++)
-            {
-
-                <label>@_cares_Completed[i].care: $ @_cares_Completed[i].careValue</label>
-                <br /> <hr>
-            }
-        </div>
-
-        <h3 class="g12 @showhide">CHARGES:</h3>
-        <div class="g13 @showhide">
-
-            @for (int i = 0; i < _charges.Count; i++)
-            {
-                <label>@_charges[i].charge: $ @_charges[i].ChargeValue</label>
-                <br /> <hr>
-            }
-            @temp2
-        </div>
 
     </div>
+
+    <h3 class="g8 @showhide">Cares Assigned:</h3>
+    <div class="g9 @showhide">
+
+        @for (int i = 0; i < _cares_Assigned.Count; i++)
+        {
+            <button class="btn-success">Remove</button>
+            <label>@_cares_Assigned[i].care: $ @_cares_Assigned[i].careValue</label>
+            <br /> <hr>
+        }
+    </div>
+
+    <h3 class="g10 @showhide">Cares Completed:</h3>
+    <div class="g11 @showhide">
+
+        @for (int i = 0; i < _cares_Completed.Count; i++)
+        {
+
+            <label>@_cares_Completed[i].care: $ @_cares_Completed[i].careValue</label>
+            <br /> <hr>
+        }
+    </div>
+
+    <h3 class="g12 @showhide">CHARGES:</h3>
+    <div class="g13 @showhide">
+
+        @for (int i = 0; i < _charges.Count; i++)
+        {
+            <label>@_charges[i].charge: $ @_charges[i].ChargeValue</label>
+            <br /> <hr>
+        }
+        @temp2
+    </div>
+
+</div>
 
 
 @code{
 
     private string temp = string.Empty;
 
-     private string temp2 = string.Empty;
+    private string temp2 = string.Empty;
 
     private string showhide = "hide";
 
@@ -125,11 +127,11 @@
         _charges = await Http.GetJsonAsync<List<Charge>>("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/getCharges");
         _cares = await Http.GetJsonAsync<List<Care>>("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/getCares");
 
-        
-        
-        temp = await Http.GetStringAsync("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/createUser/?email=kamparsen@yahoo.com&password=123456");
+
+
+        //temp = await Http.GetStringAsync("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/createUser/?email=kamparsen@yahoo.com&password=123456");
         temp2 = await Http.GetStringAsync("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/getUserByEmail/?email=kamparsen@yahoo.com");
-        
+
         UpdateCares_NotAssigned();
         UpdateCares_Assigned();
         UpdateCares_Completed();
@@ -170,7 +172,7 @@
         foreach (var item in _cares)
         {
             if (item.status == 3)
-            {
+            { 
                 _cares_Completed.Add(item);
             }
         }
@@ -178,6 +180,9 @@
 
     private void GetUserById()
     {
+        JSRuntime.InvokeVoidAsync("LoginUser","kamparsen@yahoo.com","k8084164");
+        return;
+
         var h = _users.Where(x => x.id == _selectdUserId).FirstOrDefault();
         _selectedUser = h.name;
         ff = "$" + h.cash.ToString();

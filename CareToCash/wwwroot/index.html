@@ -12,6 +12,34 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="Login.js"></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        var firebase = require("firebase/app");
+
+        // Add the Firebase products that you want to use
+        require("firebase/auth");
+        require("firebase/firestore");
+
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDYiYRMlAZpEXya9aVUhv9cpJwJL4Oz7gM",
+            authDomain: "dazzling-torch-8270.firebaseapp.com",
+            databaseURL: "https://dazzling-torch-8270.firebaseio.com",
+            projectId: "dazzling-torch-8270",
+            storageBucket: "dazzling-torch-8270.appspot.com",
+            messagingSenderId: "935228019520",
+            appId: "1:935228019520:web:0d827d87281eb216e920a5"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 
 
     <link href="css/site.css" rel="stylesheet" />

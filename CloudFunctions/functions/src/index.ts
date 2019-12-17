@@ -14,8 +14,9 @@ app.use(cors({ origine: true }))
 
 app.get('/getUserByEmail', async (request, response) => {
 
-     admin.auth().getUserByEmail(request.query.email).then(function(userRecord) {
-         response.send('FOUND:' + userRecord.email);
+    admin.auth().getUserByEmail(request.query.email).then(function (userRecord) {
+         
+        response.send('FOUND:' + userRecord.toJSON);
          
      })
          .catch(function (error) {
