@@ -36,9 +36,9 @@
         JSRuntime.InvokeVoidAsync("LoginUser", email, password);
     }
 
-    private void RegisterUser()
+    private async Task RegisterUser()
     {
-        JSRuntime.InvokeVoidAsync("RegisterUser", email, password);
+        await JSRuntime.InvokeVoidAsync("RegisterUser", email, password);
     }
 
 
