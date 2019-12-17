@@ -201,6 +201,9 @@ app {
     display: none;
 }
 
+
+/*main Page Grid*/
+
 .container {
     display: grid;
     grid-template-columns: 90px 90px 90px;
@@ -293,4 +296,60 @@ app {
     grid-area: g13;
     overflow: scroll;
     background-color: wheat;
+}
+
+
+/*Login Page Grid*/
+
+.container2 {
+    display: grid;
+    grid-template-columns: 90px 90px 90px;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
+    grid-template-areas: "g14 g14 g14" ". . ." "g15 g15 g15" "g16 g16 g16" ". . ." "g17 g17 g17" "g18 g18 g18" ". . ." "g19 g19 g19" ". . ." "g20 g20 g20";
+}
+
+.g14 {
+    grid-area: g14;
+    text-decoration-style: wavy;
+    margin-left: 2rem;
+    font-style: italic;
+    color: cornsilk;
+}
+
+.g15 {
+    grid-area: g15;
+    text-decoration-style: wavy;
+    color: cornsilk;
+    font-style: italic;
+}
+
+.g16 {
+    grid-area: g16;
+    text-decoration-style: wavy;
+    color: blue;
+    font-style: italic;
+}
+
+.g17 {
+    grid-area: g17;
+    text-decoration-style: wavy;
+    color: cornsilk;
+    font-style: italic;
+}
+
+.g18 {
+    grid-area: g18;
+    text-decoration-style: wavy;
+    color:blue;
+    font-style: italic;
+}
+
+.g19 {
+    grid-area: g19;
+    color: bisque;
+}
+
+.g20 {
+    grid-area: g20;
+    color: bisque;
 }

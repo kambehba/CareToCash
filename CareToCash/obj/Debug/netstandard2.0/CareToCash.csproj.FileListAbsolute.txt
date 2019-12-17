@@ -132,4 +132,3 @@ C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\Raz
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\RazorDeclaration\Pages\Login.razor.g.cs
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\Razor\Pages\Login.razor.g.cs
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\bin\Debug\netstandard2.0\package-lock.json
-C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\CareToCash.csprojAssemblyReference.cache
