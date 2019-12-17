@@ -1,23 +1,54 @@
 ﻿
 @page "/"
+@inject IJSRuntime JSRuntime;
 
-    <div class="container2">
-        <h1 class="g14">Care To Cash</h1>
+<div class="container2">
+    <h1 class="g14">Care To Cash</h1>
 
-        <label class="g15">E-mail:  </label>
-        <input class="g16" type="email" name="emailaddress">
-
-        <label class="g17">Password:  </label>
-        <input class="g18" type="password" name="password">
-
-        <button class="g19 btn-success">Login</button>
-        <button class="g20 btn-danger">Register</button>
+    <label class="g15">E-mail:  </label>
+    <input class="g16" type="email" @bind="@email" />
 
 
-    </div>
+    <label class="g17">Password:  </label>
+    <input class="g18" type="password" @bind="@password" />
+
+    <button class="g19 btn-success" @onclick="LoginUser">Login</button>
+    <button class="g20 btn-danger"  @onclick="RegisterUser">Register</button>
+
+</div>
 
 
 
 @code {
+
+    private string email;
+    private string password;
+
+    //protected override async Task OnInitializedAsync()
+    //{
+    //    // _users = new List<User>();
+    //  //  await RefreshCustomerList();
+    //    //  await GetChargesById(0);
+    //}
+
+    private void LoginUser()
+    {
+        JSRuntime.InvokeVoidAsync("LoginUser", email, password);
+    }
+
+    private void RegisterUser()
+    {
+        JSRuntime.InvokeVoidAsync("RegisterUser", email, password);
+    }
+
+
+    //private async Task RefreshCustomerList()
+    //{
+
+
+
+    //    // ff = _charges[0].charge;
+    //   // StateHasChanged();
+    //}
 
 }

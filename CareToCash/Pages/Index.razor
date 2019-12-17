@@ -172,7 +172,7 @@
         foreach (var item in _cares)
         {
             if (item.status == 3)
-            { 
+            {
                 _cares_Completed.Add(item);
             }
         }
@@ -183,11 +183,11 @@
         JSRuntime.InvokeVoidAsync("LoginUser","kamparsen@yahoo.com","k8084164");
         return;
 
-        var h = _users.Where(x => x.id == _selectdUserId).FirstOrDefault();
-        _selectedUser = h.name;
-        ff = "$" + h.cash.ToString();
+        //var h = _users.Where(x => x.id == _selectdUserId).FirstOrDefault();
+        //_selectedUser = h.name;
+        //ff = "$" + h.cash.ToString();
 
-        showhide = "show";
+        //showhide = "show";
 
     }
 
