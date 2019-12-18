@@ -1,6 +1,7 @@
 ﻿
 @page "/"
 @inject IJSRuntime JSRuntime;
+@inject NavigationManager NavigationManager;
 
 <div class="container2">
     <h1 class="g14">Care To Cash</h1>
@@ -13,7 +14,7 @@
     <input class="g18" type="password" @bind="@password" />
 
     <button class="g19 btn-success" @onclick="LoginUser">Login</button>
-    <button class="g20 btn-danger"  @onclick="RegisterUser">Register</button>
+    <button class="g20 btn-danger" @onclick="RegisterUser">Register</button>
 
 </div>
 
@@ -24,12 +25,35 @@
     private string email;
     private string password;
 
+     protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+
+            
+            NavigationManager.LocationChanged += OnLocationChanges;
+          
+            StateHasChanged();
+        }
+
+    }
+
+
+     private void OnLocationChanges(object sender, LocationChangedEventArgs e)
+    {
+        
+
+        StateHasChanged();
+    }
+    
     //protected override async Task OnInitializedAsync()
     //{
     //    // _users = new List<User>();
     //  //  await RefreshCustomerList();
     //    //  await GetChargesById(0);
     //}
+
+
 
     private void LoginUser()
     {
@@ -39,6 +63,13 @@
     private async Task RegisterUser()
     {
         await JSRuntime.InvokeVoidAsync("RegisterUser", email, password);
+    }
+
+    [JSInvokable]
+    public static void dothis()
+    {
+        
+        //NavigationManager.NavigateTo("/main");
     }
 
 

@@ -133,3 +133,4 @@ C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\bla
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\blazor\linker\CareToCash.pdb
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\blazor\inputs.bootjson.cache
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\blazor\blazor.boot.json
+C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\CareToCash.csprojAssemblyReference.cache

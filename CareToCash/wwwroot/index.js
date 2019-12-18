@@ -1,6 +1,10 @@
-﻿function LoginUser(email,password) {
-    alert("email:" + email + " " + "password:" + password);
-    firebase.auth().signInWithEmailAndPassword(email, password).then(() => { alert("SSS") });
+﻿
+
+function LoginUser(email, password) {
+    const promise = firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
+
+        alert("Signed-in")
+    }).catch(function (error) { alert(error) });
 
 }
 
@@ -15,4 +19,15 @@ function RegisterUser(email, password) {
         });
 
 }
+
+firebase.auth().onAuthStateChanged(user => {
+
+    if (user) {
+        alert("logedinnn");
+
+    }
+    else { alert("dddddddd") };
+});
+
+
 
