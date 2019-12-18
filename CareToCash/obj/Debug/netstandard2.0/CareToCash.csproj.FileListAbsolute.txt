@@ -63,7 +63,6 @@ C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\bin\Debug\netstandard2.0\Sys
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\bin\Debug\netstandard2.0\System.Text.Encodings.Web.dll
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\bin\Debug\netstandard2.0\System.Text.Json.dll
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\bin\Debug\netstandard2.0\System.Threading.Tasks.Extensions.dll
-C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\CareToCash.csprojAssemblyReference.cache
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\staticwebassets\CareToCash.StaticWebAssets.Manifest.cache
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\staticwebassets\CareToCash.StaticWebAssets.xml
 C:\Users\Kam\Documents\GitHub\CareToCash\CareToCash\obj\Debug\netstandard2.0\CareToCash.RazorComponent.input.cache
