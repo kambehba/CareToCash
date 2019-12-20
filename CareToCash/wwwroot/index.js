@@ -3,9 +3,16 @@
 function LoginUser(email, password) {
     const promise = firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
 
-        alert("Signed-in")
+        alert("Signed-in");
+        NavigateToMainPageFromJS();
+       
     }).catch(function (error) { alert(error) });
 
+}
+
+//This Calls .Net Method in Login Component.
+NavigateToMainPageFromJS = callBackReceiver => {
+    callBackReceiver.invokeMethod('NavigateToMainPage');
 }
 
 

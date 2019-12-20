@@ -1,7 +1,7 @@
 ﻿
 @page "/"
 @inject IJSRuntime JSRuntime;
-@inject NavigationManager NavigationManager;
+@inject NavigationManager nm;
 
 <div class="container2">
     <h1 class="g14">Care To Cash</h1>
@@ -19,33 +19,31 @@
 </div>
 
 
-
 @code {
 
     private string email;
     private string password;
 
-     protected override void OnAfterRender(bool firstRender)
+    protected override void OnAfterRender(bool firstRender)
     {
         if (firstRender)
         {
 
-            
-            NavigationManager.LocationChanged += OnLocationChanges;
-          
+
+            nm.LocationChanged += OnLocationChanges;
+
             StateHasChanged();
         }
 
     }
 
-
-     private void OnLocationChanges(object sender, LocationChangedEventArgs e)
+    private void OnLocationChanges(object sender, LocationChangedEventArgs e)
     {
-        
+
 
         StateHasChanged();
     }
-    
+
     //protected override async Task OnInitializedAsync()
     //{
     //    // _users = new List<User>();
@@ -53,11 +51,11 @@
     //    //  await GetChargesById(0);
     //}
 
-
-
     private void LoginUser()
     {
         JSRuntime.InvokeVoidAsync("LoginUser", email, password);
+        
+        JSRuntime.InvokeAsync<bool>("NavigateToMainPageFromJS",DotNetObjectReference.Create(this));
     }
 
     private async Task RegisterUser()
@@ -66,10 +64,10 @@
     }
 
     [JSInvokable]
-    public static void dothis()
+    public void NavigateToMainPage()
     {
-        
-        //NavigationManager.NavigateTo("/main");
+
+        nm.NavigateTo("/main");
     }
 
 

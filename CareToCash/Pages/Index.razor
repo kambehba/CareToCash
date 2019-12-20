@@ -130,7 +130,7 @@
 
 
         //temp = await Http.GetStringAsync("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/createUser/?email=kamparsen@yahoo.com&password=123456");
-        temp2 = await Http.GetStringAsync("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/getUserByEmail/?email=kamparsen@yahoo.com");
+        //temp2 = await Http.GetStringAsync("https://us-central1-dazzling-torch-8270.cloudfunctions.net/appFunctions/getUserByEmail/?email=kamparsen@yahoo.com");
 
         UpdateCares_NotAssigned();
         UpdateCares_Assigned();
@@ -180,16 +180,16 @@
 
     private void GetUserById()
     {
-        JSRuntime.InvokeVoidAsync("LoginUser","kamparsen@yahoo.com","k8084164");
-        return;
 
-        //var h = _users.Where(x => x.id == _selectdUserId).FirstOrDefault();
-        //_selectedUser = h.name;
-        //ff = "$" + h.cash.ToString();
+        var h = _users.Where(x => x.id == _selectdUserId).FirstOrDefault();
+        _selectedUser = h.name;
+        ff = "$" + h.cash.ToString();
 
-        //showhide = "show";
+        showhide = "show";
 
     }
+
+
 
 
 }
