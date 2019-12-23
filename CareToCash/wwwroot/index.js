@@ -1,18 +1,13 @@
 ﻿
 
-function LoginUser(email, password) {
+function LoginUser(email, password,dotNetReference) {
     const promise = firebase.auth().signInWithEmailAndPassword(email, password).then(() => {
 
-        alert("Signed-in");
-        NavigateToMainPageFromJS();
+        alert("You Successfully Signed-in!");
+        dotNetReference.invokeMethod('NavigateToMainPage');
        
-    }).catch(function (error) { alert(error) });
+    }).catch(function (error) { alert("2222" + error) });
 
-}
-
-//This Calls .Net Method in Login Component.
-NavigateToMainPageFromJS = callBackReceiver => {
-    callBackReceiver.invokeMethod('NavigateToMainPage');
 }
 
 
@@ -30,10 +25,10 @@ function RegisterUser(email, password) {
 firebase.auth().onAuthStateChanged(user => {
 
     if (user) {
-        alert("logedinnn");
+        
 
     }
-    else { alert("dddddddd") };
+    else { };
 });
 
 

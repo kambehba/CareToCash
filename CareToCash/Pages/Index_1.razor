@@ -1,5 +1,5 @@
 ﻿
-@page "/"
+@page "/main_1"
 
 @using System.Net.Http;
 @using Services;
@@ -18,19 +18,13 @@
 
     <h1 class="g0">Care To Cash</h1>
 
-    <h2 class="g1">Add Member:</h2>
+    <h3 class="g1">Select Member:</h3>
 
-    <h3 class="g2">Name:</h3>
-    <input class="g3" type="text" />
-    <button class="g4">Submit</button>
-
-
-
-    @*<select class="g2" @bind="_selectdUserId">
+    <select class="g2" @bind="_selectdUserId">
 
         @for (int i = 0; i < _users.Count; i++)
         {
-        <option value="@_users[i].id">@_users[i].name</option>
+            <option value="@_users[i].id">@_users[i].name</option>
         }
     </select>
 
@@ -43,9 +37,9 @@
 
         @for (int i = 0; i < _cares_NotAssigned.Count; i++)
         {
-        <button class="btn-success">Add</button>
-        <label>@_cares_NotAssigned[i].care  $ @_cares_NotAssigned[i].careValue</label>
-        <br />  <hr>
+            <button class="btn-success">Add</button>
+            <label>@_cares_NotAssigned[i].care  $ @_cares_NotAssigned[i].careValue</label>
+            <br /> <hr>
         }
 
 
@@ -56,9 +50,9 @@
 
         @for (int i = 0; i < _cares_Assigned.Count; i++)
         {
-        <button class="btn-success">Remove</button>
-        <label>@_cares_Assigned[i].care: $ @_cares_Assigned[i].careValue</label>
-        <br />  <hr>
+            <button class="btn-success">Remove</button>
+            <label>@_cares_Assigned[i].care: $ @_cares_Assigned[i].careValue</label>
+            <br /> <hr>
         }
     </div>
 
@@ -68,8 +62,8 @@
         @for (int i = 0; i < _cares_Completed.Count; i++)
         {
 
-        <label>@_cares_Completed[i].care: $ @_cares_Completed[i].careValue</label>
-        <br />  <hr>
+            <label>@_cares_Completed[i].care: $ @_cares_Completed[i].careValue</label>
+            <br /> <hr>
         }
     </div>
 
@@ -78,11 +72,11 @@
 
         @for (int i = 0; i < _charges.Count; i++)
         {
-        <label>@_charges[i].charge: $ @_charges[i].ChargeValue</label>
-        <br />  <hr>
+            <label>@_charges[i].charge: $ @_charges[i].ChargeValue</label>
+            <br /> <hr>
         }
         @temp2
-    </div>*@
+    </div>
 
 </div>
 

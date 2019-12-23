@@ -207,8 +207,8 @@ app {
 .container {
     display: grid;
     grid-template-columns: 90px 90px 90px;
-    grid-template-rows: 50px 30px 20px 20px 30px 50px 30px 50px 50px 50px 50px 20px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
-    grid-template-areas: "g0 g0 g0" ". . ." "g1 g1 g1" ". . ." "g2 g2 g3" ". . ." "g4 g4 g5" ". . ." "g6 g6 g6" "g7 g7 g7" "g7 g7 g7" "g7 g7 g7" ". . ." "g8 g8 g8" "g9 g9 g9" "g9 g9 g9" "g9 g9 g9" ". . ." "g10 g10 g10" "g11 g11 g11" "g11 g11 g11" "g11 g11 g11" ". . ." "g12 g12 g12" "g13 g13 g13" "g13 g13 g13" "g13 g13 g13";
+    grid-template-rows: 50px 20px 30px 20px 40px 40px 20px 40px 50px 50px 50px 20px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
+    grid-template-areas: "g0 g0 g0" ". . ." "g1 g1 g1" ". . ." "g2 g2 g2" "g3 g3 g3" ". . ." "g4 g4 g4" ". . ." "g8 g8 g8" "g9 g9 g9" "g9 g9 g9" "g9 g9 g9" ". . ." "g10 g10 g10" "g11 g11 g11" "g11 g11 g11" "g11 g11 g11" ". . ." "g12 g12 g12" "g13 g13 g13" "g13 g13 g13" "g13 g13 g13";
 }
 
 .g0 {
@@ -223,28 +223,23 @@ app {
 .g1 {
     grid-area: g1;
     text-decoration-style: wavy;
-    color: cornsilk;
+    color:crimson;
     font-style: italic;
 }
 
 .g2 {
     grid-area: g2;
-    text-decoration-style: solid;
-    color: darkblue;
-   
+    color: crimson;
 }
 
 .g3 {
     grid-area: g3;
-    text-decoration-style: solid;
-    color:cornsilk;
-    margin-left:1rem;
+    color:blue;
 }
 
 .g4 {
     grid-area: g4;
-    color:chartreuse;
-    
+    color: crimson;
 }
 
 .g5 {
@@ -327,7 +322,7 @@ app {
     grid-area: g16;
     text-decoration-style: wavy;
     color: blue;
-    font-style: italic;
+    font-style:normal;
 }
 
 .g17 {
@@ -340,8 +335,8 @@ app {
 .g18 {
     grid-area: g18;
     text-decoration-style: wavy;
-    color:blue;
-    font-style: italic;
+    color: blue;
+    font-style: normal;
 }
 
 .g19 {
